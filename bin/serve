@@ -141,6 +141,7 @@ var server = connect();
 
 server.use(connect.favicon());
 if (log) server.use(connect.logger(logFormat));
+connect.static.mime.define({'text/plain':['md']});
 server.use(connect.static(path, { hidden: hidden }));
 if (directory) server.use(connect.directory(path, { hidden: hidden, icons: icons }));
 server.listen(port);
